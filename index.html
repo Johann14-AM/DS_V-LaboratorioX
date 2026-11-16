@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CALCULADORA WEB</title>
+        <style>
+                * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #2563eb;
+                color: #333;
+                line-height: 1.5;
+                padding: 20px;
+            }
+
+            header {
+                text-align: center;
+                background-color: #1e3a5f;
+                color: white;
+                padding: 25px 20px;
+                margin-bottom: 30px;
+                border-radius: 10px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+                margin: 0;
+            }
+            section {
+            background-color: white;
+            max-width: 500px;
+            margin: 0 auto 25px auto;   
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+
+            section h2 {
+                color: #1e3a5f;
+                margin-bottom: 18px;
+                border-bottom: 2px solid #e0e7ff;
+                padding-bottom: 8px;
+            }
+
+            label {
+                display: block;
+                margin-top: 12px;
+                margin-bottom: 4px;
+                font-weight: bold;
+                color: #444;
+            }
+
+            input[type="number"],
+            input[type="text"] {
+                width: 100%;
+                padding: 10px 12px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+
+            input:focus {
+                outline: none;
+                border-color: #3b82f6;
+                box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            }
+
+            button {
+                display: block;
+                width: 100%;
+                margin-top: 15px;
+                padding: 12px;
+                background-color: #2563eb;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 1rem;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.2s;
+            }
+
+            button:hover {
+                background-color: #1d4ed8;
+            }
+
+            p {
+                margin-top: 15px;
+                font-size: 1.05rem;
+            }
+
+            span {
+                font-weight: bold;
+                color: #1e40af;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Calculadora Web</h1>
+            <h4>Desarrollo de Software V</h4>
+            <h4>Johann Alabarca (8-1042-1108)</h4>
+        </header>
+        <br>
+       <!--SUMA DE TRES NUMS-->  
+        <section class ="suma">
+            <h2>Suma</h2>
+          
+            <label for="val1">Valor 1= </label>
+            <input type="number" id="val1" required>
+
+            <label for="val2">Valor 2= </label>
+            <input type="number" id="val2" required>
+
+            <label for="val3">Valor 3= </label>
+            <input type="number" id="val3" required>
+
+            <button type="button" onclick="SumarApp()">Sumar</button>
+
+            <p>La suma de los valores ingresados es = <span id = "resultado"></span></p>
+
+            <script>
+                function SumarApp() {
+                    let a = Number(document.getElementById('val1').value);
+                    let b = Number(document.getElementById('val2').value);
+                    let c = Number(document.getElementById('val3').value);
+
+                    let suma = a + b + c;
+
+                    document.getElementById('resultado').textContent = suma;
+                }
+            </script>
+            <br>
+        </section>
+
+        <!--NUM AL CUADRADO-->
+        <section class="potencia">
+            <h2>Cuadrado</h2>
+         
+            <label for="base">Número para elevar al cuadrado= </label>
+            <input type="number" id="base" required>
+            
+            <button type="button" onclick="PotenciaApp()">Potenciar</button>
+
+            <p>El número al cuadrado es = <span id = "potencia"></span></p>
+
+            <script>
+
+                function PotenciaApp() {
+                    let b = Number(document.getElementById('base').value);
+
+                    let potencia = b*b; 
+                    document.getElementById('potencia').textContent = potencia;
+                }
+            </script>
+            <br>
+        </section>
+
+        <!--PROMEDIOS-->
+        <section class="promedios">
+            <h2>Promedios</h2>
+            <label for ="Nombre">Nombre del estudiante = </label>
+            <input type="text" id="nombre" required>
+
+            <label for="base">Nota 1= </label>
+            <input type="number" id="nota1" required>
+
+            <label for="base">Nota 2= </label>
+            <input type="number" id="nota2" required>
+
+            <label for="base">Nota 3= </label>
+            <input type="number" id="nota3" required>
+            
+            <p>El promedio de <span id="nombreprom"></span> es = <span id = "promedio"></span></p>
+            
+            <button type="button" onclick = "PromedioApp()">Sacar promedio</button>
+
+            <script>
+
+                function PromedioApp() {
+                    let nom= String(document.getElementById('nombre').value);
+                    let uno= Number(document.getElementById('nota1').value);
+                    let dos= Number(document.getElementById('nota2').value);
+                    let tres= Number(document.getElementById('nota3').value);
+
+                    let promedio = (uno + dos + tres)/3;
+                    document.getElementById('promedio').textContent = promedio;
+                    document.getElementById('nombreprom').textContent = nom;
+                }
+
+            </script>
+            <br>
+        </section>
+
+        <section class="conversion">
+            <h2>Conversión de Unidad</h2>
+            <label for="metros">Cantidad en metros: </label>
+            <input type="number" id="metros" required>
+
+            <button type="button" onclick = "ConversionApp()">Convertir</button>
+
+            <p>Cantidad en centímetros = <span id = "centimetros"></span></p>
+            <p>Cantidad en kilómetos = <span id = "kilometros"></span></p>
+
+            <script>
+                function ConversionApp() {
+                    let m= Number(document.getElementById('metros').value);
+                    let cm = m * 100;
+                    let km = m / 1000;
+                    document.getElementById('centimetros').textContent = cm;
+                    document.getElementById('kilometros').textContent = km;
+                }
+            </script>
+        </section>
+
+        <section class="comparasion">
+            <h2>Comparación de Valores</h2>
+
+            <label for="num1">Valor 1= </label>
+            <input type="number" id="num1" required>
+
+            <label for="num2">Valor 2= </label>
+            <input type="number" id="num2" required>
+
+            <button type="button" onclick = "ComparasionApp()">Comparar</button>
+
+            <p>Número mayor: = <span id="mayor"></span></p>
+            <p>Número menor: = <span id="menor"></span></p>
+            <p>Diferencia: = <span id="diferencia"></span></p>
+
+            <script>
+                function ComparasionApp() {
+                    let n1 = Number(document.getElementById('num1').value);
+                    let n2 = Number(document.getElementById('num2').value);
+
+                    let may, men, dif;
+
+                    if (n1 < n2){
+                        dif = n2 - n1;
+                        may = n2;
+                        men = n1;
+                    }
+                    else
+                    if (n1 > n2){
+                        dif = n1 - n2;
+                        may = n1;
+                        men = n2;
+                    }
+                    else{
+                        dif = 0;
+                        may = men = n1;
+                    }
+
+                    document.getElementById('mayor').textContent = may;
+                    document.getElementById('menor').textContent = men;
+                    document.getElementById('diferencia').textContent = dif;
+                }
+            </script>
+
+        </section>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
